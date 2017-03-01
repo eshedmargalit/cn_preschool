@@ -23,7 +23,10 @@ def sin_plot():
 def dft_plot():
     x = np.linspace(0,50,50)
     y = np.sin(x) + np.random.normal(0,1,50)
-    dft(y)
+    transform = dft(y)
+    amp = np.abs(transform)
+    plt.plot(amp[0:len(amp)/2])
+    plt.show()
 
 if __name__ == '__main__':
     dft_plot()
