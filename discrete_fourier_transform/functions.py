@@ -24,6 +24,31 @@ def dft(x):
     # return dot prod of sine wave and signal
     return np.dot(s_wave,x)
 
+def fft(x):
+    """
+    Fast version of DFT which exploits symmetry
+    """
+    x = np.asarray(x, dtype=float)
+    N = x.shape[0]
+
+    # if array is too small for this to be helpful, just do a dft
+    cutoff = 64
+
+    # arrays must be of size 2 ^ x, because recursive operation is going to split array
+    # in half on each recursive step
+    if N % 2 > 0:
+        raise ValueError("Can only operate on arrays whose size is a power of 2")
+    elif N < cutoff: #if starting size is too small, just run the dft code above
+        return dft(x)
+    else: # begin recursive fft-ing
+        evens = fft(x[::2]) #recursively run transform on evens
+        odds = fft(x[1::2]) #recursively run transform on odds
+
+        s_wave = sin_3d(np.arange(N), 1,
+            amplitude=1)
+        return np.concatenate([evens + s_wave[:N/2] * odds,
+            evens + s_wave[N/2:] * odds])
+
 def sin_3d(x,freq,amplitude=1):
     """
     Returns the complex-valued output of Euler's formula:

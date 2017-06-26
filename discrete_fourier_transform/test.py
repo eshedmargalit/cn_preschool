@@ -51,5 +51,37 @@ def dft_plot():
 
     plt.show()
 
+def compare_dft_fft():
+    N = 2048
+    x = np.linspace(0,50,N)
+    y = np.sin(x) + np.random.normal(0,1,N)
+
+    dft_transform = dft(y)
+    dft_amp = (1/N) * np.abs(dft_transform)
+    dft_amp = dft_amp[0:int(N/2)] * 2
+
+    fft_transform = fft(y)
+    fft_amp = (1/N) * np.abs(fft_transform)
+    fft_amp = fft_amp[0:int(N/2)] * 2
+
+    fig = plt.figure(figsize=(12,8))
+    plt.subplot(311)
+    plt.plot(x,y)
+    plt.xlabel('Time')
+    plt.ylabel('Signal')
+
+    plt.subplot(312)
+    plt.plot(np.arange(0,N/2),dft_amp)
+    plt.ylabel('Amplitude (DFT)')
+
+    plt.subplot(313)
+    plt.plot(np.arange(0,N/2),fft_amp)
+    plt.xlabel('Frequency')
+    plt.ylabel('Amplitude (FFT)')
+
+    plt.show()
+
+
+
 if __name__ == '__main__':
-    dft_plot()
+    compare_dft_fft()
