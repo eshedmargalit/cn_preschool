@@ -28,8 +28,27 @@ def dft_plot():
     y = np.sin(x) + np.random.normal(0,1,N)
     transform = dft(y)
 
+    # get amplitudes 
     amp = (1/N) * np.abs(transform)
-    plt.plot(amp[0:int(N/2)])
+
+    # signal is real, so we keep the first half of freqs and double their amplitude
+    amp = amp[0:int(N/2)] * 2
+
+
+    # plot signal
+    fig = plt.figure(figsize=(12,8))
+
+    plt.subplot(211)
+    plt.plot(x,y)
+    plt.xlabel('Time')
+    plt.ylabel('Signal')
+
+    # plot spectrum
+    plt.subplot(212)
+    plt.plot(np.arange(0,N/2),amp)
+    plt.xlabel('Frequency')
+    plt.ylabel('Amplitude')
+
     plt.show()
 
 if __name__ == '__main__':
