@@ -2,7 +2,7 @@
 % cbb meeting
 % TGoodroeFisher
 %================================%
-fuckit; clear all;
+%fuckit; clear all;
 %% conv basics
 	% establish sqare wave
 	wv = ones(1,50);

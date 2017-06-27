@@ -5,7 +5,11 @@ format long
 % amp * cos(2 * pi * freq * (time + phase))
 t = 0:.001:.3;
 r = 1 * sin(2 * pi * 10 * t);
-[fh,ah] = makefigure();
+%[fh,ah] = makefigure();
+
+fh = figure();
+ah = axes('parent',fh);
+
 lh = line(t,r,'color','r','parent',ah);
 xlabel('time')
 ylabel('amplitude')
@@ -48,7 +52,11 @@ tot_sig = sum(sig,1);
 norm_tot_sig = tot_sig/norm(tot_sig);
 
 % plot duh wave
-[fh2,ah2] = makefigure();
+%[fh2,ah2] = makefigure();
+
+fh2 = figure();
+ah2 = axes('parent',fh2);
+
 lh2(1) = line(tims, tot_sig);
 title(ah2,'show the signal');
 %keyboard
@@ -81,7 +89,10 @@ freq_axis = linspace(0,large_freak,ny_lim);
 freq_axis_plot = [-fliplr(freq_axis(2:end-1)),freq_axis];
 man_four = four/numel(tot_sig);
 mat_four = ff/numel(tot_sig);
-[fh3,ah3] = makefigure();
+%[fh3,ah3] = makefigure();
+
+fh3 = figure();
+ah3 = axes('parent',fh3);
 
 % trick to get matlab to plot negative freq correctly
 freq_index = [numel(freq_axis)+1:numel(freq_axis_plot),1:numel(freq_axis)];
