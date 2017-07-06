@@ -26,7 +26,6 @@ function [fh,ah,lh] = negative_frequency_dtft(sample_number)
 	frequency aliases to the negative of the frequency one smaller than the
 	Nyquist frequency.
 %}
-
 %% set up different samplings for the same amount of 'time' 
 	% given then number of samples, create a time axis that spans [0,1]
 	sampling_rate = 1/sample_number;
@@ -35,6 +34,10 @@ function [fh,ah,lh] = negative_frequency_dtft(sample_number)
 	% for visualization, also create a time axis that is more densely 
 	% sampled than our actual signal
 	true_rate = .01;
+	if sampling_rate <= true_rate
+		warning(['You will now be aliasing the true signal,',...
+		 ' lower your sample number!']);
+	end
 	true_samples = 0:true_rate:1;
 
 %% construct our example waves
@@ -56,23 +59,23 @@ function [fh,ah,lh] = negative_frequency_dtft(sample_number)
 		amp, freq, offset, phase);
 
 	% true and standard sine waves at the Nyquist frequency
-	true_nyquist_wave = sf_sin_wv(true_samples,...
+	true_nyquist_wave = sf_comp_wv(true_samples,...
 		amp, nyquist_limit, offset, phase);
 
-	nyquist_wave = sf_sin_wv(samples,...
+	nyquist_wave = sf_comp_wv(samples,...
 		amp, nyquist_limit, offset, phase);
 
 	% true and standard sine waves at +/- 1 of the Nyquist frequency
-	true_left_of_nyquist_wave = sf_sin_wv(true_samples,...
+	true_left_of_nyquist_wave = sf_comp_wv(true_samples,...
 		amp, nyquist_limit-1, offset, phase);
 
-	left_of_nyquist_wave = sf_sin_wv(samples,...
+	left_of_nyquist_wave = sf_comp_wv(samples,...
 		amp, nyquist_limit-1, offset, phase);
 
-	true_right_of_nyquist_wave = sf_sin_wv(true_samples,...
+	true_right_of_nyquist_wave = sf_comp_wv(true_samples,...
 		amp, nyquist_limit+1, offset, phase);
 
-	right_of_nyquist_wave = sf_sin_wv(samples,...
+	right_of_nyquist_wave = sf_comp_wv(samples,...
 		amp, nyquist_limit+1, offset, phase);
 
 	% complex wave at frequency one smaller than the Nyquist frequency
@@ -128,6 +131,9 @@ function [fh,ah,lh] = negative_frequency_dtft(sample_number)
 	lh2(6) = line(true_samples, real(-true_left_of_nyquist_wave),...
 		imag(-true_left_of_nyquist_wave),'linewidth', 1.5,...
 		'linestyle', '-', 'marker', 'none', 'color', 'g','parent',ah2);
+	xlabel('samples');
+	ylabel('real');
+	zlabel('imag');
 
 	% create legend for this figure 
 	legend(lh2(:), {'Nyquist limit of this signal',...
@@ -138,7 +144,10 @@ function [fh,ah,lh] = negative_frequency_dtft(sample_number)
 		'negative of the frequency less the Nyquist limit'});
 
 	% get legend out of the way
-	axis(ah2,[0 1 -amp amp*2]); 
+	axis(ah2,[0 1 -amp amp*2 -amp amp*2]); 
+	
+	% adjust view, rotate into samples, imag so that aliasing is clear
+	view([0,0]);
 
 %% now lets look at how this would operate in the dtft, aka dot product
 	% dot product -- complex values
@@ -165,9 +174,6 @@ end
 function wv = sf_sin_wv(evaluate_points,amp,freq,offset,phase);
 	wv = amp * sin(2*pi * freq * (evaluate_points + phase)); 
 end
-function wv = sf_cos_wv(evaluate_points,amp,freq,offset,phase);
-	wv = amp * cos(2*pi * freq * (evaluate_points + phase)); 
-end
 function cwv = sf_comp_wv(evaluate_points, amp, freq, offset, phase);
-	cwv = amp * exp(-j * 2*pi * (evaluate_points + phase));
+	cwv = amp * exp(-j * 2*pi * freq * (evaluate_points + phase));
 end
