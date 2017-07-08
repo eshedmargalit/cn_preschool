@@ -63,10 +63,10 @@
    ```
 
 ##### 2. git your repository [started][setting up a repository]
-   Surely you have a directory with some code you would like to version
+   **Surely you have a directory with some code you would like to version
    control, but lets start with some practice so nothing goes wrong. We 
    will start by simulating an existing project, and git some practice in
-   terminal too.
+   terminal too.**
    
    * **mkdir**: this will make a directory (this is basically a 'folder')
    
@@ -76,15 +76,14 @@
   
 
    ```
-      $ mkdir ~/path/thatistosay/location/you/want/to/git/practice/
-      $ cd ~/path/thatistosay/location/you/want/to/git/practice/
+   $ mkdir ~/path/thatistosay/location/you/want/to/git/practice/
+   $ cd ~/path/thatistosay/location/you/want/to/git/practice/
    ```
-   
-   **...now you will see**
+   ...now you will see
 
-   ```shell
-      user at somewhere in ~/path/thatistosay/location/you/wnat/to/git/practice/
-      $ 
+   ```
+   user at somewhere in ~/path/thatistosay/location/you/wnat/to/git/practice/
+   $ 
    ```
 
    * **touch**: this will make a file 
@@ -93,15 +92,90 @@
    ```
    $ touch first_vercon_file.sofun
    ```
-   you've made your first version conroled project, so fun! Lets version control (g)it 
-   
+   **You've made your first version controlled project, so fun! Lets version
+   contorl (g)it**
    
    * **git init**: initialize your git repository. This tells git to start paying
    attention to this directory.
-   * **ls -a**: ls (list) will show you the files in the directory. ls -a will show
-   you the 'hidden' '.' files. 
+
+
+   ```
+   $ git init
+   ```
+
+   ...now you will see
+
+   ```
+   $ git init
+   Initialized empty Git repositiory in ~/path/thatistosay/location/you/want/to/git/practice/
+   ```
 
    
+   **Lets list what is in our repository**
+   
+   * **ls -a**: ls (list) will show you the files in the directory. ls -a will show
+   you the 'hidden' or '.' files. 
+  
+
+   ```
+   $ ls 
+   ```
+   ...now you will see
+
+   ```
+   $ ls
+   first_vercon_file.sofun
+   ```
+   ...but nothing has changed, still just that file there.
+
+   ```
+   $ ls -a
+   .          ..        .git        first_vercon_file.sofun
+   ```
+
+   the **-a** makes the list show the '.' files too. _FunFact: '.' and '..'
+   are the directory you are currently in and the directory above it. Try_
+   ```
+   $ cd ..
+   ``` 
+   _and see what happens._
+
+   **Now git is in this directory, but you have not specified which files to
+   track. Git does not track files until you explicitly tell it to:**
+
+   * **git status**: indicates what is staged for commit 
+   * **git add**: stages the content for the next commit. 
+   * **git commit**: stores the content and a message describing your changes.
+   
+	   _Warning: in this section we are using flags. Flags are simple, they alter
+	   the way a fuction operates. To learn about the flags of a function type:_
+	   ```
+	   $ man FUNCTION
+	   ```
+	   _Actually, you already used one 'ls -a', '-a' is a flag for ls.
+	   Flags are fun :-). press "q" to leave the man page_
+   
+   
+   ```
+   $ git status
+   ```
+   ...now you see
+
+   ```
+   On branch master
+
+   Initial commit
+
+   Untracked files:
+     (use "git add <file>..." to include in what will be committed)
+
+           first_vercon_file.sofun
+
+   nothing added to commit but untracked files present (use "git add" to track)
+   ```
+   
+   
+    
 
 
 [setting up a repository]: https://www.atlassian.com/git/tutorials/setting-up-a-repository
