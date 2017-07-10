@@ -2,7 +2,7 @@
 
 ### Where to start
 
-##### 1. gitting help
+#### 1. gitting help
 
 ```
 $ git
@@ -62,7 +62,7 @@ to read about a specific subcommand or concept.
 ```
 
 
-##### 2. git your repository [started][setting up a repository]
+#### 2. git your repository [started][setting up a repository]
 **Surely you have a directory with some code you would like to version
 control, but lets start with some practice so nothing goes wrong. We 
 will start by simulating an existing project, and git some practice in
@@ -230,7 +230,7 @@ $
 On master(whaa?), you now have your master branch, a  branch along your version
 control tree. 
 
-##### 3. git(ting) useful
+#### 3. git(ting) useful
 
 **Now for some real world application: lets say you have your
 analysis working, but you would like to add a new feature. git allows you to 
@@ -291,7 +291,7 @@ index numbers..numbers numbers
 git diff master developfeature
 ```
 
-##### 4. visualize (g)it
+#### 4. visualize (g)it
 
 **Now we can take a look at our tree and see where all our branches are, 
 relative to one another**
@@ -315,7 +315,7 @@ $ git log --graph --decorate
       project initial commit!
 ```
 
-##### 5. GitHub
+#### 5. GitHub
 
 **Lets git a [GitHub][setting up a GitHub account] account.**
 
