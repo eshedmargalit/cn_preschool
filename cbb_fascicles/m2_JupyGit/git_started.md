@@ -135,7 +135,7 @@ $ ls -a
 ```
 
 the **-a** makes the list show the '.' files too. Now we can see the .git 
-file, so git should be tracking this directory. 
+directory, so git should be tracking this directory. 
 
 _FunFact: '.' and '..' are the directory you are currently in and the 
 directory above it. Try_
@@ -259,8 +259,7 @@ $ git checkout -b developfeature
 terminal editor 'vim'.**
 
 * **vim**: terminal text editor, bare bones, very fast. If you are curious
-and get stuck just hit 'esc' twice and type ':q!'. Want to [learn more about vim]
-[google vim].
+and get stuck just hit 'esc' twice and type ':q!'. Want to [learn more about vim][google vim].
 
 ```
 user at somewhere in ~/path/thatistosay/location/you/want/to/git/practice/ 
