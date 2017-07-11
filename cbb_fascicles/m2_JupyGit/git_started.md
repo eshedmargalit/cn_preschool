@@ -2,7 +2,7 @@
 
 ### Where to start
 
-#### 1. gitting help
+#### 1. Gitting help
 
 ```
 $ git
@@ -47,7 +47,7 @@ grow, mark and tweak your common history
    checkout   Switch branches or restore working tree files
    commit     Record changes to the repository
    diff       Show changes between commits, commit and working tree, etc
-   merge      Join two or more development histories together
+   merge      Join two or more development histories togither
    rebase     Reapply commits on top of another base tip
    tag        Create, list, delete or verify a tag object signed with GPG
 
@@ -63,18 +63,18 @@ to read about a specific subcommand or concept.
 
 
 #### 2. git your repository [started][setting up a repository]
-**Surely you have a directory with some code you would like to version
+**Surely, you have a directory with some code you would like to version
 control, but lets start with some practice so nothing goes wrong. We 
 will start by simulating an existing project, and git some practice in
 terminal too.**
 
-* **mkdir**: this will make a directory (this is basically a 'folder')
+* **mkdir**: this will make a directory (this is basically a 'folder').
 
-* **cd**: this will take you to (aka. change) a directory 
+* **cd**: this will take you to (aka. change) a directory.
 
-* **~/**: this is home :-)
+* **~/**: this is home :-).
 
-* **touch**: this will make a file 
+* **touch**: this will make a file.
 
 ```
 $ mkdir ~/path/thatistosay/location/you/want/to/git/practice/
@@ -92,7 +92,7 @@ $
 $ touch first_vercon_file.sofun
 ```
 **You've made your first version controlled project, so fun! Lets version
-contorl (g)it**
+contorl (g)it**.
 
 * **git init**: initialize your git repository. This tells git to start paying
 attention to this directory. Technically it puts a .git directory in your 
@@ -126,7 +126,7 @@ $ ls
 first_vercon_file.sofun
 ```
 
-...but nothing has changed, still just that file there. We can ask ls tto 
+...but nothing has changed, still just that file there. We can ask ls to 
 print more thouroughly with '-a'.
 
 ```
@@ -253,13 +253,13 @@ $ git checkout developfeature
 $ git checkout -b developfeature
 ```
 
-...will get you to the same place.
+...will git you to the same place.
 
 **Make some edits to your file, using the editor of your choice. I will use a
 terminal editor 'vim'.**
 
 * **vim**: terminal text editor, bare bones, very fast. If you are curious
-and get stuck just hit 'esc' twice and type ':q!'. Want to [learn more about vim][google vim].
+and git stuck just hit 'esc' twice and type ':q!'. Want to [learn more about vim][google vim].
 
 ```
 user at somewhere in ~/path/thatistosay/location/you/want/to/git/practice/ 
@@ -297,7 +297,7 @@ git diff master developfeature
 relative to one another**
 
 * **git log**: lists the commit history of your repo. '--graph' shows a line
-drawing of the relationship between commits (comes in handy when things get
+drawing of the relationship between commits (comes in handy when things git
 complicated). '--decorate' tells us where each of our branches sit on the graph.
 
 ```
