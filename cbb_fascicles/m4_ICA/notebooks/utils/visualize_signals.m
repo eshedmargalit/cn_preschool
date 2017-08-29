@@ -19,3 +19,4 @@ function ah = visualize_signals(source_coords, measurement_coords);
 	 'linewidth', 1, 'marker', 'o', 'markersize', 5,...
 	 'markerfacecolor', 'k', 'parent', ah);
 	legend([lh(1) lh(2)],'sources','measurement locations');
+end
